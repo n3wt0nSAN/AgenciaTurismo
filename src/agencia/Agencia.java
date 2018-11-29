@@ -32,7 +32,7 @@ public class Agencia {
 
     @Override
     public String toString() {
-        return "agencia.Agencia: " + this.nomeFantasia + ", CNPJ: " + this.cnpj + ", Endereço: " +
+        return this.nomeFantasia + ", CNPJ: " + this.cnpj + ", " +
                this.endereco.toString();
     }
 }

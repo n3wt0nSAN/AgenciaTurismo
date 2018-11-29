@@ -15,10 +15,32 @@ public class Endereco {
         this.cidade = cidade;
     }
 
+    public Endereco(String rua, int num, String cep, String bairro) {
+
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
     // metodo toString()
     @Override
     public String toString() {
-        return "Rua: " + this.rua + ", Número: " + this.numero + ", agencia.Cidade: " + this.cidade.nome +
-                ", Estado: " + this.cidade.estado + ", CEP: " + this.cep + ", Pais: " + this.cidade.pais;
+        return "ENDEREÇO: "+ this.rua + ", NÚMERO: " + this.numero + ", BAIRRO: " + this.bairro + ", CEP: " + this.cep +
+                ", " + this.cidade.toString();
     }
+
+
 }

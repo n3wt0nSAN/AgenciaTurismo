@@ -39,4 +39,31 @@ public class Tables {
             + "	state text NOT NULL,\n"
             + "	country  text NOT NULL\n"
             + ");";
+
+    protected String tPacotes = "CREATE TABLE IF NOT EXISTS packages (\n"
+            + "	package_id integer PRIMARY KEY,\n"
+            + "	data_start text,\n"
+            + "	data_end text,\n"
+            + "	value double NOT NULL,\n"
+            + " agency_id integer NOT NULL REFERENCES agencies(agency_id)\n"
+            + ");";
+
+    protected String tAtracoes = "CREATE TABLE IF NOT EXISTS events (\n"
+            + "	event_id integer PRIMARY KEY,\n"
+            + "	name text NOT NULL,\n"
+            + "	day text NOT NULL,\n"
+            + "	hour text NOT NULL,\n"
+            + "	history text,\n"
+            + "	min_age integer,\n"
+            + "	band text,\n"
+            + "	danger text,\n"
+            + "	middle_value text,\n"
+            + " address_id integer NOT NULL REFERENCES addresses(address_id)\n"
+            + ");";
+
+    protected String tPacotesCidades = "CREATE TABLE IF NOT EXISTS packs_cities (\n"
+            + "	id integer PRIMARY KEY,\n"
+            + "	package_id integer NOT NULL REFERENCES packages(package_id),\n"
+            + "	city_id integer NOT NULL  REFERENCES cities(city_id)\n"
+            + ");";
 }
