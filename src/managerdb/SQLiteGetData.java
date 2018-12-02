@@ -1,6 +1,7 @@
 package managerdb;
 
 import agencia.Agencia;
+import agencia.Atracao;
 import agencia.Cidade;
 import agencia.Endereco;
 
@@ -97,8 +98,8 @@ public class SQLiteGetData {
         }
     }
 
-    public int getAddressId(String cep) throws SQLException {
-        String sql = "SELECT address_id"
+    public int selectAddressId(String cep) throws SQLException {
+        String sql = "SELECT address_id "
                 + "FROM addresses WHERE cep = ?";
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -109,7 +110,7 @@ public class SQLiteGetData {
             return rs.getInt("address_id");
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
             return -1;
         }
 
@@ -176,4 +177,45 @@ public class SQLiteGetData {
             return null;
         }
     }
+
+    public ArrayList selectAllEvents() throws SQLException {
+        try (Statement stmt  = conn.createStatement()) {
+            String sql = "SELECT * FROM events";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            ArrayList <String> lists  = new ArrayList<String>();
+            while (rs.next()) {
+                lists.add(rs.getString("name"));
+            }
+
+            return lists;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public Cidade selectCityByName(String name) throws SQLException {
+        String sql = "SELECT * FROM cities WHERE name = ?";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            // set the value
+            String metaData[] = name.split(",");
+
+            pstmt.setString(1, metaData[0]);
+            //pstmt.setString(1, metaData[1]);
+
+            ResultSet rs  = pstmt.executeQuery();
+            Cidade c = new Cidade(rs.getString("name"), rs.getString("state"),
+                    rs.getString("country"));
+
+            return c;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+
 }

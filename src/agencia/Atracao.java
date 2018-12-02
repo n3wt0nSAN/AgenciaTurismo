@@ -22,4 +22,8 @@ public class Atracao {
     public String getHorario() {
         return horario;
     }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
 }

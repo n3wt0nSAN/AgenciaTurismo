@@ -7,4 +7,9 @@ public class Show extends Atracao {
         super(name, data, horas, endereco);
         this.bandas = text;
     }
+
+    public String getBandas() {
+        return this.bandas;
+    }
+
 }

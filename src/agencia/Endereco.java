@@ -15,10 +15,6 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-    public Endereco(String rua, int num, String cep, String bairro) {
-
-    }
-
     public String getRua() {
         return rua;
     }
@@ -35,10 +31,14 @@ public class Endereco {
         return cep;
     }
 
+    public Cidade getCidade() {
+        return cidade;
+    }
+
     // metodo toString()
     @Override
     public String toString() {
-        return "ENDEREÇO: "+ this.rua + ", NÚMERO: " + this.numero + ", BAIRRO: " + this.bairro + ", CEP: " + this.cep +
+        return "ENDEREÇO: " + this.rua + ", NÚMERO: " + this.numero + ", BAIRRO: " + this.bairro + ", CEP: " + this.cep +
                 ", " + this.cidade.toString();
     }
 

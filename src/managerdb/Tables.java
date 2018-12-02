@@ -55,9 +55,9 @@ public class Tables {
             + "	hour text NOT NULL,\n"
             + "	history text,\n"
             + "	min_age integer,\n"
-            + "	band text,\n"
+            + "	bands text,\n"
             + "	danger text,\n"
-            + "	middle_value text,\n"
+            + "	middle_values text,\n"
             + " address_id integer NOT NULL REFERENCES addresses(address_id)\n"
             + ");";
 

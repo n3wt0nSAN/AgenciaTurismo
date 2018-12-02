@@ -4,7 +4,6 @@ import agencia.*;
 import managerdb.Main;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -26,15 +25,16 @@ public class NewAtracao {
     private JSpinner dAno;
     protected JPanel mainPanel;
     private JComboBox comboBox2;
-    private JTextField textHistoria;
-    private JTextField textBandas;
-    private JTextField textPrecos;
+    private JTextArea textBandas;
+    private JTextArea textHistoria;
+    private JTextArea textPrecos;
 
     protected static JFrame frame;
     protected static String history;
 
     private Main db = new Main();
-    private Object obj;
+    private Object type;
+    private Object city;
 
     public NewAtracao(JFrame f) {
         comboBox1.addItem(" -- Escolha uma cidade -- ");
@@ -73,23 +73,24 @@ public class NewAtracao {
                 String cep = textCep.getText();
 
                 // get cidade pelo nome usando Object obj
+                Cidade c = db.getCity(String.valueOf(city));
+                //System.out.println(c.getEstado());
 
-                Endereco end = new Endereco(rua, num, cep, bairro);
-                db.addAddress(end, String.valueOf(obj));
+                Endereco end = new Endereco(rua, num, cep, bairro, c);
+                db.addAddress(end);
 
                 String data = dia + "/" + mes + "/" + ano;
 
-                if (String.valueOf(obj) == "Museu") {
+                if (String.valueOf(type) == "Museu") {
                     Museu m = new Museu(name, data, horas, textHistoria.getText(), end);
-                    db.saveEvent((Atracao) m, );
-                } else if (String.valueOf(obj) == "Praia") {
+                    db.saveMuseum(m);
+                } else if (String.valueOf(type) == "Praia") {
                     Praia p = new Praia(name, data, horas, textPrecos.getText(), end);
-                    db.saveEvent((Atracao) p);
+                    db.savePraia(p);
                 } else {
-                    Show s = new Show(name, data, horas, textBandas.getText(), end);
-                    db.saveEvent((Atracao) s);
+                    Show s = new Show(name, data, horas, textPrecos.getText(), end);
+                    db.saveShow(s);
                 }
-
 
                 f.setVisible(false);
             }
@@ -100,7 +101,7 @@ public class NewAtracao {
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange() == ItemEvent.SELECTED){
                     // Selecionei um ciade, e acidionar no pacote
-                    obj = e.getItem();
+                    city = e.getItem();
                 }
             }
         });
@@ -110,14 +111,14 @@ public class NewAtracao {
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange() == ItemEvent.SELECTED){
                     // Criar nova janela para informções extras do tipo
-                    obj = e.getItem();
-                    System.out.println(obj);
-                    if (String.valueOf(obj) == "Museu") {
+                    type = e.getItem();
+                    System.out.println(type);
+                    if (String.valueOf(type) == "Museu") {
                         // Ativa somente o textHistoria
                         textHistoria.setVisible(true);
                         textPrecos.setVisible(false);
                         textBandas.setVisible(false);
-                    } else if (String.valueOf(obj) == "Praia") {
+                    } else if (String.valueOf(type) == "Praia") {
                         textPrecos.setVisible(true);
                         textBandas.setVisible(false);
                         textHistoria.setVisible(false);

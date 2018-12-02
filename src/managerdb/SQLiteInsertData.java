@@ -109,9 +109,34 @@ public class SQLiteInsertData {
             System.out.println(e.getMessage());
         }
     }
+
+    public void insertBeach(String name, String day, String startTime, String values, int address_id)  throws SQLException {
+        String sql = "INSERT INTO events(name,day,hour,middle_values,address_id) VALUES(?,?,?,?,?)";
+
+        try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, day);
+            pstmt.setString(3, startTime);
+            pstmt.setString(4, values);
+            pstmt.setInt(5, address_id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void insertShow(String name, String day, String startTime, String bands, int address_id) throws SQLException {
+        String sql = "INSERT INTO events(name,day,hour,bands,address_id) VALUES(?,?,?,?,?)";
+
+        try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, day);
+            pstmt.setString(3, startTime);
+            pstmt.setString(4, bands);
+            pstmt.setInt(5, address_id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
-//} else if (type == "Praia") {
-//        sql = "INSERT INTO events(name,day,hour,min_age,band,address_id) VALUES(?,?,?,?,?,?)";
-//        } else {
-//        sql = "INSERT INTO events(name,day,hour,danger,middle_value,address_id) VALUES(?,?,?,?,?,?)";
-//        }

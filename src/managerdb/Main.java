@@ -1,9 +1,6 @@
 package managerdb;
 
-import agencia.Agencia;
-import agencia.Cidade;
-import agencia.Endereco;
-import agencia.Museu;
+import agencia.*;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -40,14 +37,15 @@ public class Main {
         try {
             insertData.insertCity(c.getNome(), c.getEstado(), c.getPais());
         } catch (SQLException sqle) {
-            System.out.println(sqle.getMessage());
+            sqle.printStackTrace();
         }
     }
 
-    public void addAddress(Endereco e, String s) {
+    public void addAddress(Endereco e) {
         try {
             // get city_id
-            int city_id = getData.getCity(s);
+            Cidade c = e.getCidade();
+            int city_id = getData.getCity(c.getNome());
             insertData.insertAddress(e.getRua(), e.getBairro(), e.getCep(), e.getNumero(), city_id);
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -55,22 +53,10 @@ public class Main {
 
     }
 
-    public void addEvents(Museu m, String nome, String horaInicio, String data, String type, String historia, Endereco e) {
-        try {
-            // get address_id
-            int address_id =  getAdressId(e);
-            if (type == "Museu") {
-                insertData.insertMuseum(m.getNome(), m.getData(), m.getHorario(), m.getHistoria(), address_id);
-            }
 
-        } catch (SQLException e1) {
-            e1.printStackTrace();
-        }
-    }
-
-    private int getAdressId(Endereco e) {
+    private int getAddressId(Endereco e) {
         try {
-            int id = getData.getAddressId(e.getCep());
+            int id = getData.selectAddressId(e.getCep());
             return id;
 
         } catch (SQLException e1) {
@@ -84,7 +70,7 @@ public class Main {
             ArrayList <Agencia> agencies = getData.selectAllAgencies();
             return agencies;
         } catch (SQLException sqle ) {
-            System.out.println(sqle.getCause());
+            sqle.printStackTrace();
             return null;
         }
     }
@@ -94,9 +80,72 @@ public class Main {
             ArrayList cities = getData.selectAllCities();
              return cities;
         } catch (SQLException sqle) {
-            System.out.println(sqle.getMessage());
+            sqle.printStackTrace();
             return null;
         }
+    }
+
+    public ArrayList getAllEvents() {
+        try {
+            ArrayList atracoes = getData.selectAllEvents();
+            return atracoes;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return null;
+        }
+    }
+
+
+    public Cidade getCity(String name) {
+        try {
+           Cidade c = getData.selectCityByName(name);
+           return c;
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        return null;
+    }
+
+    public void saveMuseum(Museu m) {
+        try {
+            // get address_id
+            Endereco e = m.getEndereco();
+            int address_id =  getAddressId(e);
+            if (address_id != -1) {
+                insertData.insertMuseum(m.getNome(), m.getData(), m.getHorario(), m.getHistoria(), address_id);
+            }
+        } catch (SQLException e1) {
+            System.out.println(e1.getMessage());
+            e1.printStackTrace();
+        }
+
+    }
+
+    public void savePraia(Praia p) {
+        try {
+            // get address_id
+            Endereco e = p.getEndereco();
+            int address_id =  getAddressId(e);
+            if (address_id != -1) {
+                insertData.insertBeach(p.getNome(), p.getData(), p.getHorario(), p.getPrecos(), address_id);
+            }
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    public void saveShow(Show s) {
+        try {
+            // get address_id
+            Endereco e = s.getEndereco();
+            int address_id =  getAddressId(e);
+            if (address_id != -1) {
+                insertData.insertShow(s.getNome(), s.getData(), s.getHorario(), s.getBandas(), address_id);
+            }
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+
     }
 
 
@@ -178,11 +227,6 @@ public class Main {
             }
 
         }
-    }
-
-
-    public ArrayList getAllEvents() {
-        return null;
     }
 
 

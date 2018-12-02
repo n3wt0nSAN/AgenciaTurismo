@@ -7,4 +7,8 @@ public class Praia extends Atracao {
        super(name, data, horas,endereco);
        this.precoMedios = text;
     }
+
+    public String getPrecos() {
+        return this.precoMedios;
+    }
 }

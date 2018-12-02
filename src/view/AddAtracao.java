@@ -21,9 +21,9 @@ public class AddAtracao {
     public AddAtracao(JFrame f, ArrayList list) {
         comboBox1.addItem(" -- Escolha uma Atração -- ");
         ArrayList events = db.getAllEvents();
-//        for (int i = 0; i < events.size(); i++) {
-//            comboBox1.addItem(events.get(i));
-//        }
+        for (int i = 0; i < events.size(); i++) {
+            comboBox1.addItem(events.get(i));
+        }
 
         comboBox1.addItemListener(new ItemListener() {
             @Override
