@@ -16,7 +16,7 @@ public class MainAgency {
     private JTable table1;
     private JLabel about;
 
-    static JFrame frame;
+    protected static JFrame frame;
 
     public MainAgency(Object ag) {
 
@@ -31,7 +31,7 @@ public class MainAgency {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame = new JFrame("Pacote");
-                frame.setContentPane(new NewPackge().mainPanel);
+                frame.setContentPane(new NewPackge(frame, ag).mainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);

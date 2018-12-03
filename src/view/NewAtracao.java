@@ -44,9 +44,9 @@ public class NewAtracao {
         }
 
         comboBox2.addItem(" -- Escolha uma tipo de atração -- ");
-        comboBox2.addItem("Museu");
-        comboBox2.addItem("Show");
         comboBox2.addItem("Praia");
+        comboBox2.addItem("Show");
+        comboBox2.addItem("Museu");
 
 //        textHistoria.setVisible(false);
 //        textPrecos.setVisible(false);

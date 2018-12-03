@@ -34,7 +34,7 @@ public class SQLiteGetData {
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             // set the value
             pstmt.setString(1, name);
-            ResultSet rs  = pstmt.executeQuery();
+            ResultSet rs = pstmt.executeQuery();
 
             Cidade c = new Cidade(rs.getString("name"),
                     rs.getString("state"), rs.getString("state"));
@@ -59,7 +59,7 @@ public class SQLiteGetData {
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             // set the value
             pstmt.setString(1, number);
-            ResultSet rs  = pstmt.executeQuery();
+            ResultSet rs = pstmt.executeQuery();
 
             Data d = new Data(rs.getInt("contact_id"), rs.getString("phone"),
                     rs.getString("email"));
@@ -84,7 +84,7 @@ public class SQLiteGetData {
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             // set the value
             pstmt.setInt(1, id);
-            ResultSet rs  = pstmt.executeQuery();
+            ResultSet rs = pstmt.executeQuery();
 
             Cidade c = getCity(rs.getInt("city_id"));
             Endereco e = new Endereco(rs.getString("street"), rs.getInt("number"),
@@ -105,7 +105,7 @@ public class SQLiteGetData {
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             // set the value
             pstmt.setString(1, cep);
-            ResultSet rs  = pstmt.executeQuery();
+            ResultSet rs = pstmt.executeQuery();
 
             return rs.getInt("address_id");
 
@@ -116,13 +116,64 @@ public class SQLiteGetData {
 
     }
 
+    public int selectAgencyId(String name) throws SQLException {
+        String sql = "SELECT * "
+                + "FROM agencies WHERE name = ?";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            // set the value
+            pstmt.setString(1, name);
+            ResultSet rs = pstmt.executeQuery();
+
+            return rs.getInt("agency_id");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    public int selectCityId(String name) throws SQLException {
+        String sql = "SELECT city_id "
+                + "FROM cities WHERE name = ?";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            // set the value
+            pstmt.setString(1, name);
+            ResultSet rs = pstmt.executeQuery();
+
+            return rs.getInt("city_id");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    public int selectEventId(String name) throws SQLException {
+        String sql = "SELECT event_id "
+                + "FROM events WHERE name = ?";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            // set the value
+            pstmt.setString(1, name);
+            ResultSet rs = pstmt.executeQuery();
+
+            return rs.getInt("event_id");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
     public Cidade getCity(int id) throws SQLException {
         String sql = "SELECT * FROM cities WHERE city_id = ?";
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             // set the value
             pstmt.setInt(1, id);
-            ResultSet rs  = pstmt.executeQuery();
+            ResultSet rs = pstmt.executeQuery();
 
             Cidade c = new Cidade(rs.getString("name"), rs.getString("state"),
                     rs.getString("country"));
@@ -137,14 +188,13 @@ public class SQLiteGetData {
 
     /**
      * Get all agencies from db
-     *
      */
     public ArrayList selectAllAgencies() throws SQLException {
-        try (Statement stmt  = conn.createStatement()) {
+        try (Statement stmt = conn.createStatement()) {
             String sql = "SELECT * FROM agencies";
             ResultSet rs = stmt.executeQuery(sql);
 
-            ArrayList <Agencia> lists  = new ArrayList<Agencia>();
+            ArrayList<Agencia> lists = new ArrayList<Agencia>();
             Agencia ag;
             while (rs.next()) {
                 Endereco e = getAddress(rs.getInt("address_id"));
@@ -159,12 +209,12 @@ public class SQLiteGetData {
         }
     }
 
-    public ArrayList selectAllCities() throws SQLException{
-        try (Statement stmt  = conn.createStatement()) {
+    public ArrayList selectAllCities() throws SQLException {
+        try (Statement stmt = conn.createStatement()) {
             String sql = "SELECT * FROM cities";
             ResultSet rs = stmt.executeQuery(sql);
 
-            ArrayList <Cidade> lists  = new ArrayList<Cidade>();
+            ArrayList<Cidade> lists = new ArrayList<Cidade>();
             Cidade c;
             while (rs.next()) {
                 c = new Cidade(rs.getString("name"), rs.getString("state"), rs.getString("country"));
@@ -179,11 +229,11 @@ public class SQLiteGetData {
     }
 
     public ArrayList selectAllEvents() throws SQLException {
-        try (Statement stmt  = conn.createStatement()) {
+        try (Statement stmt = conn.createStatement()) {
             String sql = "SELECT * FROM events";
             ResultSet rs = stmt.executeQuery(sql);
 
-            ArrayList <String> lists  = new ArrayList<String>();
+            ArrayList<String> lists = new ArrayList<String>();
             while (rs.next()) {
                 lists.add(rs.getString("name"));
             }
@@ -205,7 +255,7 @@ public class SQLiteGetData {
             pstmt.setString(1, metaData[0]);
             //pstmt.setString(1, metaData[1]);
 
-            ResultSet rs  = pstmt.executeQuery();
+            ResultSet rs = pstmt.executeQuery();
             Cidade c = new Cidade(rs.getString("name"), rs.getString("state"),
                     rs.getString("country"));
 
@@ -217,5 +267,45 @@ public class SQLiteGetData {
         }
     }
 
+    public Agencia selectAgencyByName(String name) throws SQLException {
+        String sql = "SELECT * FROM agencies WHERE name = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            // set the value
+            String metaData[] = name.split(",");
+            pstmt.setString(1, metaData[0]);
+            //pstmt.setString(1, metaData[1]);
 
+            ResultSet rs = pstmt.executeQuery();
+
+            Endereco e = getAddress(rs.getInt("address_id"));
+            Agencia a = new Agencia(rs.getString("name"), rs.getString("cnpj"), e);
+
+            return a;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public Atracao selectEventByName(String name) throws SQLException {
+        String sql = "SELECT * FROM events WHERE name = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            // set the value
+            pstmt.setString(1, name);
+            //pstmt.setString(1, metaData[1]);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            Endereco e = getAddress(rs.getInt("address_id"));
+            Atracao a = new Atracao(rs.getString("name"), rs.getString("day"), rs.getString("hour"), e);
+
+            return a;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 }
+

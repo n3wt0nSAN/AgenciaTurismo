@@ -53,6 +53,44 @@ public class Main {
 
     }
 
+    public void addPackage(Pacote p) {
+        try {
+            // get agency_id
+            Agencia ag = p.getAgencia();
+            int agency_id =  getData.selectAgencyId(ag.getName());
+
+            // get cities_ids
+            ArrayList<Cidade> cities = p.getCidades();
+            ArrayList<Integer> cities_ids = new ArrayList<>();
+
+            for(int i=0; i < cities.size(); i++){
+                Cidade c = cities.get(i);
+                int id = getData.selectCityId(c.getNome());
+                cities_ids.add(id);
+            }
+
+            System.out.println(cities_ids);
+
+            // get events_ids
+            ArrayList<Atracao> events = p.getAtracoes();
+            ArrayList<Integer> events_ids = new ArrayList<>();
+
+            for(int j=0; j < events.size(); j++){
+                Atracao at = events.get(j);
+                int id = getData.selectEventId(at.getNome());
+                events_ids.add(id);
+            }
+
+            // TODO: Criar função pra salvar objeto
+            System.out.println(events_ids);
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+
+
+    }
+
 
     private int getAddressId(Endereco e) {
         try {
@@ -100,6 +138,27 @@ public class Main {
         try {
            Cidade c = getData.selectCityByName(name);
            return c;
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        return null;
+    }
+
+    public Agencia getAgency(String name) {
+        try {
+            Agencia a = getData.selectAgencyByName(name);
+            return a;
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        return null;
+    }
+
+
+    public Atracao getEvent(String name) {
+        try {
+            Atracao a = getData.selectEventByName(name);
+            return a;
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
@@ -228,6 +287,4 @@ public class Main {
 
         }
     }
-
-
 }

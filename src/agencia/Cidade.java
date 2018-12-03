@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class Cidade {
     private String nome, estado, pais;
-    public int city_id;
-    //private ArrayList <Atracao> atracoes;
+    //
 
     public Cidade(String name, String state, String country) {
         this.nome = name;

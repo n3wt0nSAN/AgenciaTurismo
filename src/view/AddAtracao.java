@@ -55,8 +55,7 @@ public class AddAtracao {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                list.add(String.valueOf(obj));
-                System.out.println(list);
+                list.add(obj);
                 f.setVisible(false);
             }
         });

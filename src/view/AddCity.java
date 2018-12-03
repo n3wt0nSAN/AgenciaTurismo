@@ -48,9 +48,6 @@ public class AddCity {
             @Override
             public void actionPerformed(ActionEvent e) {
                 list.add(String.valueOf(obj));
-                System.out.println(list);
-                //Cidade c = db.getCity(String.valueOf(obj));
-                //p.setCidade(c);
                 f.setVisible(false);
             }
         });

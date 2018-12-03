@@ -35,4 +35,8 @@ public class Agencia {
         return this.nomeFantasia + ", CNPJ: " + this.cnpj + ", " +
                this.endereco.toString();
     }
+
+    public String getName() {
+        return this.nomeFantasia;
+    }
 }

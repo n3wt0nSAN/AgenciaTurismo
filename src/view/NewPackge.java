@@ -1,5 +1,8 @@
 package view;
 
+import agencia.Agencia;
+import agencia.Atracao;
+import agencia.Cidade;
 import agencia.Pacote;
 import managerdb.Main;
 
@@ -11,7 +14,6 @@ import java.util.ArrayList;
 public class NewPackge {
     protected JPanel mainPanel;
     private JTextField name;
-    private JTextField preco;
     private JButton cancelarButton;
     private JButton salvarButton;
     //protected JComboBox comboBox1;
@@ -26,14 +28,16 @@ public class NewPackge {
     private JButton cadastrarCidadeButton;
     private JButton adicionarAtraçãoButton;
     private JButton cadastrarAtraçãoButton;
+    private JTextField preco;
 
     private Main db = new Main();
 
     protected static JFrame frame;
     protected ArrayList cities = new ArrayList();
+    protected ArrayList events = new ArrayList();
 
 
-    public NewPackge() {
+    public NewPackge(JFrame f, Object ag) {
 
 //        comboBox1.addItem(" -- Escolha uma cidade -- ");
 //        ArrayList cities = db.getAllCities();
@@ -82,7 +86,7 @@ public class NewPackge {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame = new JFrame("Add Atração");
-                frame.setContentPane(new AddAtracao(frame, cities).mainPanel);
+                frame.setContentPane(new AddAtracao(frame, events).mainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
@@ -122,7 +126,29 @@ public class NewPackge {
                 int anoFimValue = (int) anoFim.getValue();
                 String dataFim = diaFimValue + "/" + mesFimValue + "/" + anoFimValue;
 
-                Pacote p = new Pacote(name.getText(), preco.getText(), dataInicio, dataFim, (double) preco.getText());
+                double pc = Double.parseDouble(preco.getText());
+
+                Agencia agencia = db.getAgency(String.valueOf(ag));
+                Pacote p = new Pacote(name.getText(), dataInicio, dataFim, pc, agencia);
+                for(int i=0; i < cities.size(); i++){
+                    Cidade c = db.getCity(String.valueOf(cities.get(i)));
+                    p.setCidade(c);
+                }
+
+                for(int j=0; j < events.size(); j++) {
+                    Atracao a = db.getEvent(String.valueOf(events.get(j)));
+                    p.setAtracao(a);
+                }
+
+                // Salvar o pacote
+                db.addPackage(p);
+                f.setVisible(false);
+            }
+        });
+        cancelarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                f.setVisible(false);
             }
         });
     }

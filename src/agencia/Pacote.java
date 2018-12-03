@@ -1,18 +1,24 @@
 package agencia;
 
-import agencia.Cidade;
-
 import java.util.ArrayList;
 
-public abstract class Pacote {
+public class Pacote {
     private String nome, dataInicio, dataFim;
-    private ArrayList <Cidade> cidades;
     private double preco;
+    private Agencia agencia;
+    private ArrayList <Cidade> cidades = new ArrayList<Cidade>();
+    private ArrayList <Atracao> atracoes = new ArrayList<Atracao>();
 
-    public Pacote(String nome, String datai, String dataf, double preco) {
+
+    public Pacote(String nome, String datai, String dataf, double preco, Agencia agencia) {
         this.nome = nome;
         this.dataInicio = datai;
         this.dataFim = dataf;
+        this.preco = preco;
+        this.agencia = agencia;
+    }
+
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
@@ -24,13 +30,33 @@ public abstract class Pacote {
         this.cidades.add(c);
     }
 
+    public void setAtracao(Atracao a) {
+        this.atracoes.add(a);
+    }
+
+    public Agencia getAgencia() {
+        return agencia;
+    }
+
+    public String getName() {
+        return this.nome;
+    }
+
     public ArrayList<Cidade> getCidades() {
-        return cidades;
+        return this.cidades;
+    }
+
+    public ArrayList<Atracao> getAtracoes() {
+        return this.atracoes;
     }
 
     @Override
     public String toString() {
-        return "agencia.Pacote: " + this.nome + ", Datas: " + this.dataInicio + " até " +
-                this.dataFim + ", Preço: " + this.preco;
+        return "Pacote: " + this.nome + ", Período válido: " + this.dataInicio + " até " +
+                this.dataFim + ", Preço: R$ " + this.preco + ", Cidades: " + this.cidades +
+                ", Atrações: " + this.atracoes;
     }
+
+
+
 }
