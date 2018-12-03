@@ -1,5 +1,6 @@
 package view;
 
+import agencia.Pacote;
 import managerdb.Main;
 
 import javax.swing.*;
@@ -9,18 +10,18 @@ import java.util.ArrayList;
 
 public class NewPackge {
     protected JPanel mainPanel;
-    private JTextField textField1;
-    private JTextField textField5;
+    private JTextField name;
+    private JTextField preco;
     private JButton cancelarButton;
     private JButton salvarButton;
     //protected JComboBox comboBox1;
     private JButton novaCidadeButton;
-    private JSpinner spinner1;
-    private JSpinner spinner2;
-    private JSpinner spinner3;
-    private JSpinner spinner4;
-    private JSpinner spinner5;
-    private JSpinner spinner6;
+    private JSpinner diaInicio;
+    private JSpinner mesInicio;
+    private JSpinner anoInicio;
+    private JSpinner diaFim;
+    private JSpinner mesFim;
+    private JSpinner anoFim;
     private JButton adicionarCidadeButton;
     private JButton cadastrarCidadeButton;
     private JButton adicionarAtraçãoButton;
@@ -100,6 +101,28 @@ public class NewPackge {
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
+            }
+        });
+        salvarButton.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                int diaInicioValue = (int) diaInicio.getValue();
+                int mesInicioValue = (int) mesInicio.getValue();
+                int anoInicioValue = (int) anoInicio.getValue();
+                String dataInicio = diaInicioValue + "/" + mesInicioValue + "/" + anoInicioValue;
+
+                int diaFimValue = (int) diaFim.getValue();
+                int mesFimValue = (int) mesFim.getValue();
+                int anoFimValue = (int) anoFim.getValue();
+                String dataFim = diaFimValue + "/" + mesFimValue + "/" + anoFimValue;
+
+                Pacote p = new Pacote(name.getText(), preco.getText(), dataInicio, dataFim, (double) preco.getText());
             }
         });
     }

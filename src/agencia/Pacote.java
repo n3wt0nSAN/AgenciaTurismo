@@ -9,14 +9,14 @@ public abstract class Pacote {
     private ArrayList <Cidade> cidades;
     private double preco;
 
-    public Pacote(String nome, String di, String df, double p) {
+    public Pacote(String nome, String datai, String dataf, double preco) {
         this.nome = nome;
-        this.dataInicio = di;
-        this.dataFim = df;
-        this.preco = p;
+        this.dataInicio = datai;
+        this.dataFim = dataf;
+        this.preco = preco;
     }
 
-    public void setdFim(String dFim) {
+    public void setDataFim(String dFim) {
         this.dataFim = dFim;
     }
 

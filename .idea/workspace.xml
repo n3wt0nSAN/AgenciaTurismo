@@ -5,30 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61f4e260-662e-4764-90f2-60f91b6a991a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sampledb.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Agencia de Turismo/agencia/Atracao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Agencia de Turismo/agencia/Atracao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Agencia de Turismo/agencia/Endereco.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Agencia de Turismo/agencia/Endereco.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Agencia de Turismo/managerdb/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Agencia de Turismo/managerdb/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Agencia de Turismo/managerdb/SQLiteGetData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Agencia de Turismo/managerdb/SQLiteGetData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Agencia de Turismo/managerdb/SQLiteInsertData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Agencia de Turismo/managerdb/SQLiteInsertData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Agencia de Turismo/managerdb/Tables.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Agencia de Turismo/managerdb/Tables.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Agencia de Turismo/view/NewAtracao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Agencia de Turismo/view/NewAtracao$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Agencia de Turismo/view/NewAtracao$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Agencia de Turismo/view/NewAtracao$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Agencia de Turismo/view/NewAtracao$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Agencia de Turismo/view/NewAtracao$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Agencia de Turismo/view/NewAtracao$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Agencia de Turismo/view/NewAtracao$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Agencia de Turismo/view/NewAtracao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Agencia de Turismo/view/NewAtracao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agencia/Atracao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agencia/Atracao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agencia/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agencia/Endereco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agencia/Praia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agencia/Praia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agencia/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agencia/Show.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managerdb/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managerdb/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managerdb/SQLiteGetData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managerdb/SQLiteGetData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managerdb/SQLiteInsertData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managerdb/SQLiteInsertData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managerdb/Tables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managerdb/Tables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AddAtracao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AddAtracao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/NewAtracao.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/NewAtracao.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/NewAtracao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/NewAtracao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agencia/Pacote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agencia/Pacote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/NewPackge.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/NewPackge.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/NewPackge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/NewPackge.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,25 +65,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="form" value="32" />
-          <entry key="java" value="109" />
+          <entry key="form" value="33" />
+          <entry key="java" value="110" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="GUI_DESIGNER_FORM" value="32" />
-          <entry key="JAVA" value="109" />
+          <entry key="GUI_DESIGNER_FORM" value="33" />
+          <entry key="JAVA" value="110" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="9" />
-          <entry key="java" value="7834" />
+          <entry key="java" value="8044" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7834" />
+          <entry key="JAVA" value="8044" />
           <entry key="PLAIN_TEXT" value="9" />
         </counts>
       </usages-collector>
@@ -115,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/NewAtracao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="54" column="20" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="20" />
+            <state relative-caret-position="338">
+              <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="66" selection-end-column="48" />
               <folding>
                 <element signature="class#3551:4624" />
                 <element signature="class#4673:4974" />
@@ -125,20 +104,28 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/managerdb/Main.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/view/NewPackge.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="87" column="27" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="27" />
+            <state relative-caret-position="602">
+              <caret line="124" column="114" selection-start-line="124" selection-start-column="107" selection-end-line="124" selection-end-column="114" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/NewPackge.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/managerdb/Tables.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="53" column="19" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="19" />
+            <state relative-caret-position="372">
+              <caret line="50" column="67" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -158,8 +145,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/managerdb/SQLiteGetData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="180" column="26" selection-start-line="180" selection-start-column="26" selection-end-line="180" selection-end-column="26" />
+            <state relative-caret-position="644">
+              <caret line="177" column="9" lean-forward="true" selection-start-line="177" selection-start-column="9" selection-end-line="177" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5416#5424#0" expanded="true" />
@@ -169,46 +156,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/agencia/Endereco.java">
+        <entry file="file://$PROJECT_DIR$/src/agencia/Pacote.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="29" column="24" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="24" />
-              <folding>
-                <element signature="e#599#600#0" expanded="true" />
-                <element signature="e#625#626#0" expanded="true" />
-                <element signature="e#658#659#0" expanded="true" />
-                <element signature="e#687#688#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="11" column="65" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/agencia/Praia.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-              <folding>
-                <element signature="e#290#291#0" expanded="true" />
-                <element signature="e#328#329#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/NewPackge.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="531">
-              <caret line="83" column="48" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/AddAtracao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="265">
@@ -246,7 +202,6 @@
         <option value="$PROJECT_DIR$/src/Agencia.java" />
         <option value="$PROJECT_DIR$/src/Pacote.java" />
         <option value="$PROJECT_DIR$/src/managerdb/NewTable.java" />
-        <option value="$PROJECT_DIR$/src/agencia/Pacote.java" />
         <option value="$PROJECT_DIR$/src/agencia/Usuario.java" />
         <option value="$PROJECT_DIR$/src/managerdb/SQLiteConnection.java" />
         <option value="$PROJECT_DIR$/db/sampledb.db" />
@@ -267,11 +222,9 @@
         <option value="$PROJECT_DIR$/src/view/MainAgency.form" />
         <option value="$PROJECT_DIR$/src/view/AddCity.form" />
         <option value="$PROJECT_DIR$/src/view/AddPack.form" />
-        <option value="$PROJECT_DIR$/src/view/NewPackge.form" />
         <option value="$PROJECT_DIR$/src/view/AddAtracao.form" />
         <option value="$PROJECT_DIR$/src/view/AddCity.java" />
         <option value="$PROJECT_DIR$/src/view/NewCity.form" />
-        <option value="$PROJECT_DIR$/src/view/NewPackge.java" />
         <option value="$PROJECT_DIR$/src/view/NewCity.java" />
         <option value="$PROJECT_DIR$/src/agencia/Cidade.java" />
         <option value="$PROJECT_DIR$/src/view/NewMuseu.java" />
@@ -288,6 +241,9 @@
         <option value="$PROJECT_DIR$/src/view/AddAtracao.java" />
         <option value="$PROJECT_DIR$/src/managerdb/Main.java" />
         <option value="$PROJECT_DIR$/src/managerdb/SQLiteGetData.java" />
+        <option value="$PROJECT_DIR$/src/agencia/Pacote.java" />
+        <option value="$PROJECT_DIR$/src/view/NewPackge.form" />
+        <option value="$PROJECT_DIR$/src/view/NewPackge.java" />
       </list>
     </option>
   </component>
@@ -324,12 +280,6 @@
               <item name="AgenciaTurismo" type="b2602c69:ProjectViewProjectNode" />
               <item name="AgenciaTurismo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="managerdb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AgenciaTurismo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AgenciaTurismo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -355,7 +305,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="321" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543768079272" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543796606452" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -486,7 +436,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/view/NewPackge.java</url>
-          <line>49</line>
+          <line>50</line>
           <properties method="actionPerformed">
             <option name="EMULATED" value="true" />
           </properties>
@@ -496,13 +446,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/agencia/Pacote.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/agencia/Usuario.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -640,9 +583,6 @@
     <entry file="file://$PROJECT_DIR$/src/view/NewCity.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/NewPackge.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/agencia/Agencia.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -746,38 +686,24 @@
     <entry file="file://$PROJECT_DIR$/src/view/NewAtracao.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/NewAtracao.java">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="54" column="20" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="20" />
-          <folding>
-            <element signature="class#3551:4624" />
-            <element signature="class#4673:4974" />
-          </folding>
+        <state relative-caret-position="178">
+          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/NewPackge.java">
+    <entry file="file://$PROJECT_DIR$/src/managerdb/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="83" column="48" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="197">
+          <caret line="87" column="27" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/managerdb/Tables.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="53" column="19" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
+        <state relative-caret-position="372">
+          <caret line="50" column="67" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -793,8 +719,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/managerdb/SQLiteGetData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="180" column="26" selection-start-line="180" selection-start-column="26" selection-end-line="180" selection-end-column="26" />
+        <state relative-caret-position="644">
+          <caret line="177" column="9" lean-forward="true" selection-start-line="177" selection-start-column="9" selection-end-line="177" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5416#5424#0" expanded="true" />
@@ -802,17 +728,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/managerdb/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="87" column="27" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/AddAtracao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="24" column="45" lean-forward="true" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/NewAtracao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="66" selection-end-column="48" />
+          <folding>
+            <element signature="class#3551:4624" />
+            <element signature="class#4673:4974" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/NewPackge.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/agencia/Pacote.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="65" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/NewPackge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="124" column="114" selection-start-line="124" selection-start-column="107" selection-end-line="124" selection-end-column="114" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
