@@ -42,6 +42,19 @@ public class Pacote {
         return this.nome;
     }
 
+
+    public String getDataIni() {
+        return dataInicio;
+    }
+
+    public String getDataFim() {
+        return dataFim;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
     public ArrayList<Cidade> getCidades() {
         return this.cidades;
     }

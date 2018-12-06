@@ -32,6 +32,25 @@ public class MainFrame extends JFrame {
                 r.closeWindow();
             }
         });
+        viajanteButton.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame = new JFrame("Painel do Usuário");
+                frame.setContentPane(new MainUser(frame).mainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
+
+
+                Runner r = new Runner();
+                r.closeWindow();
+            }
+        });
     }
 
 

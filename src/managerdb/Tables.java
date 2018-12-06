@@ -42,6 +42,7 @@ public class Tables {
 
     protected String tPacotes = "CREATE TABLE IF NOT EXISTS packages (\n"
             + "	package_id integer PRIMARY KEY,\n"
+            + "	name text NOT NULL,\n"
             + "	data_start text,\n"
             + "	data_end text,\n"
             + "	value double NOT NULL,\n"
@@ -61,9 +62,16 @@ public class Tables {
             + " address_id integer NOT NULL REFERENCES addresses(address_id)\n"
             + ");";
 
+
     protected String tPacotesCidades = "CREATE TABLE IF NOT EXISTS packs_cities (\n"
             + "	id integer PRIMARY KEY,\n"
             + "	package_id integer NOT NULL REFERENCES packages(package_id),\n"
             + "	city_id integer NOT NULL  REFERENCES cities(city_id)\n"
+            + ");";
+
+    protected String tPacotesAtracoes = "CREATE TABLE IF NOT EXISTS packs_events (\n"
+            + "	id integer PRIMARY KEY,\n"
+            + "	package_id integer NOT NULL REFERENCES packages(package_id),\n"
+            + "	event_id integer NOT NULL  REFERENCES events(event_id)\n"
             + ");";
 }

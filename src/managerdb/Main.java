@@ -69,8 +69,6 @@ public class Main {
                 cities_ids.add(id);
             }
 
-            System.out.println(cities_ids);
-
             // get events_ids
             ArrayList<Atracao> events = p.getAtracoes();
             ArrayList<Integer> events_ids = new ArrayList<>();
@@ -82,7 +80,22 @@ public class Main {
             }
 
             // TODO: Criar função pra salvar objeto
-            System.out.println(events_ids);
+
+            insertData.insertPackage(p.getName(), p.getDataIni(), p.getDataFim(), p.getPreco(), agency_id);
+
+
+            int package_id = getData.selectPackageId(p.getName());
+            // Create insertPackageCity()
+            for(int n=0; n < cities_ids.size(); n++){
+                insertData.insertPackageCity(package_id, cities_ids.get(n));
+            }
+
+            // Create insertPackageEvent()
+            for(int m=0; m < events_ids.size(); m++){
+                insertData.insertPackageEvent(package_id, events_ids.get(m));
+            }
+
+            System.out.println("PACOTE SALVO COM SUCESSO!");
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -246,6 +259,8 @@ public class Main {
             System.out.println("Create a Pacote_Cidade table!");
             createNewTable(conn, tb.tPacotesCidades);
 
+            System.out.println("Create a Pacote_Atracao table!");
+            createNewTable(conn, tb.tPacotesAtracoes);
 
             try {
                 SQLiteInsertData insertData = new SQLiteInsertData(conn);

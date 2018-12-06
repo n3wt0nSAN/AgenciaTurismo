@@ -3,6 +3,7 @@ package managerdb;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class SQLiteInsertData {
     private Connection conn;
@@ -91,7 +92,7 @@ public class SQLiteInsertData {
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -106,7 +107,7 @@ public class SQLiteInsertData {
             pstmt.setInt(5, address_id);
             pstmt.executeUpdate();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -121,7 +122,7 @@ public class SQLiteInsertData {
             pstmt.setInt(5, address_id);
             pstmt.executeUpdate();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -136,7 +137,39 @@ public class SQLiteInsertData {
             pstmt.setInt(5, address_id);
             pstmt.executeUpdate();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
+    }
+
+    public void insertPackage(String name, String dataStart, String dataEnd, double value, int agency_id) throws SQLException {
+
+        String sql = "INSERT INTO packages(name,data_start,data_end,value,agency_id) VALUES(?,?,?,?,?)";
+        PreparedStatement pstmt = this.conn.prepareStatement(sql);
+        pstmt.setString(1, name);
+        pstmt.setString(2, dataStart);
+        pstmt.setString(3, dataEnd);
+        pstmt.setDouble(4, value);
+        pstmt.setInt(5, agency_id);
+
+        pstmt.executeUpdate();
+    }
+
+    public void insertPackageCity(int package_id, int city_id) throws SQLException {
+
+        String sql = "INSERT INTO packs_cities(package_id,city_id) VALUES(?,?)";
+        PreparedStatement pstmt = this.conn.prepareStatement(sql);
+
+        pstmt.setInt(1, package_id);
+        pstmt.setInt(2, city_id);
+        pstmt.executeUpdate();
+    }
+
+    public void insertPackageEvent(int package_id, int event_id) throws SQLException {
+        String sql = "INSERT INTO packs_events(package_id,event_id) VALUES(?,?)";
+        PreparedStatement pstmt = this.conn.prepareStatement(sql);
+
+        pstmt.setInt(1, package_id);
+        pstmt.setInt(2, event_id);
+        pstmt.executeUpdate();
     }
 }

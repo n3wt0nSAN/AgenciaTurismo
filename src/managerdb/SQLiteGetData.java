@@ -167,6 +167,19 @@ public class SQLiteGetData {
         }
     }
 
+    public int selectPackageId(String name) throws SQLException {
+        String sql = "SELECT package_id "
+                + "FROM packages WHERE name = ?";
+
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+
+        // set the value
+        pstmt.setString(1, name);
+        ResultSet rs = pstmt.executeQuery();
+
+        return rs.getInt("package_id");
+    }
+
     public Cidade getCity(int id) throws SQLException {
         String sql = "SELECT * FROM cities WHERE city_id = ?";
 
@@ -307,5 +320,7 @@ public class SQLiteGetData {
             return null;
         }
     }
+
+
 }
 
