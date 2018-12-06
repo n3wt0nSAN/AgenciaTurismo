@@ -146,6 +146,16 @@ public class Main {
         }
     }
 
+    public ArrayList getAllPackagesFromAgency(String name) {
+        try {
+            ArrayList agencies = getData.selectAllPackagesFromAgency(name);
+            return agencies;
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        return null;
+    }
+
 
     public Cidade getCity(String name) {
         try {
@@ -172,6 +182,17 @@ public class Main {
         try {
             Atracao a = getData.selectEventByName(name);
             return a;
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        return null;
+    }
+
+    public Pacote getPackage(String name, String agency) {
+        try {
+            Agencia a = getData.selectAgencyByName(agency);
+            Pacote p = getData.selectPackageByName(name, a);
+            return p;
         } catch (SQLException e1) {
             e1.printStackTrace();
         }

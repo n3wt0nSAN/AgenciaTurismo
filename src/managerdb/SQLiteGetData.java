@@ -1,9 +1,6 @@
 package managerdb;
 
-import agencia.Agencia;
-import agencia.Atracao;
-import agencia.Cidade;
-import agencia.Endereco;
+import agencia.*;
 
 import java.io.InputStream;
 import java.io.Reader;
@@ -258,6 +255,23 @@ public class SQLiteGetData {
         }
     }
 
+    public ArrayList selectAllPackagesFromAgency(String name) throws SQLException {
+        String sql = "SELECT * FROM packages WHERE agency_id = ?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        // set the value
+        String metaData[] = name.split(",");
+        int agency_id = selectAgencyId(metaData[0]);
+        pstmt.setInt(1, agency_id);
+        ResultSet rs = pstmt.executeQuery();
+
+        ArrayList<String> lists = new ArrayList<String>();
+        while (rs.next()) {
+            lists.add(rs.getString("name"));
+        }
+
+        return lists;
+    }
+
     public Cidade selectCityByName(String name) throws SQLException {
         String sql = "SELECT * FROM cities WHERE name = ?";
 
@@ -321,6 +335,58 @@ public class SQLiteGetData {
         }
     }
 
+    public Atracao selectEventById(int event_id) throws SQLException {
+        String sql = "SELECT * FROM events WHERE event_id = ?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        // set the value
+        pstmt.setInt(1, event_id);
+        //pstmt.setString(1, metaData[1]);
 
+        ResultSet rs = pstmt.executeQuery();
+
+        Endereco e = getAddress(rs.getInt("address_id"));
+        Atracao a = new Atracao(rs.getString("name"), rs.getString("day"), rs.getString("hour"), e);
+
+        return a;
+    }
+
+    public Pacote selectPackageByName(String name, Agencia a) throws SQLException {
+        String sql = "SELECT * FROM packages WHERE name = ?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        // set the value
+        pstmt.setString(1, name);
+
+        ResultSet rs = pstmt.executeQuery();
+
+        Pacote p = new Pacote(rs.getString("name"), rs.getString("data_start"), rs.getString("data_end"),
+                rs.getDouble("value"), a);
+
+        // get todas as atrações do pacote
+        ArrayList<Integer> events_ids = getAllEventsFromAgency(rs.getInt("package_id"));
+        for(int i=0; i < events_ids.size(); i++){
+            Atracao at = selectEventById(events_ids.get(i));
+            p.setAtracao(at);
+        }
+
+        return p;
+    }
+
+    private ArrayList<Integer> getAllEventsFromAgency(int package_id) throws SQLException  {
+        String sql = "SELECT event_id FROM packs_events WHERE package_id = ?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        // set the value
+        pstmt.setInt(1, package_id);
+
+        ResultSet rs = pstmt.executeQuery();
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        while (rs.next()) {
+            list.add(rs.getInt("event_id"));
+        }
+
+        return list;
+
+
+    }
 }
 
