@@ -151,7 +151,7 @@ public class MainUser {
                         Pacote p = db.getPackage(String.valueOf(pack), String.valueOf(agency));
 
 
-                        nomeLabel.setText(p.getName());
+                        nomeLabel.setText(p.getNome());
                         periodoLabel.setText(p.getDataIni() + " até " + p.getDataFim());
                         precoLabel.setText(String.valueOf(p.getPreco()));
 
@@ -218,7 +218,13 @@ public class MainUser {
                         f.pack();
 
                     } else {
-                        nomeAtracao.setVisible(false);
+                        atracaoData.setVisible(false);
+                        atracaoHorario.setVisible(false);
+                        atracaoEndereco.setVisible(false);
+
+                        labelAtData.setVisible(false);
+                        labelAtHorario.setVisible(false);
+                        labelAtEndereco.setVisible(false);
                         f.pack();
                     }
                 }

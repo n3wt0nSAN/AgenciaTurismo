@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Cidade {
     private String nome, estado, pais;
-    //
 
     public Cidade(String name, String state, String country) {
         this.nome = name;

@@ -18,13 +18,6 @@ public class Pacote {
         this.agencia = agencia;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
-    public void setDataFim(String dFim) {
-        this.dataFim = dFim;
-    }
 
     public void setCidade(Cidade c) {
         this.cidades.add(c);
@@ -38,7 +31,7 @@ public class Pacote {
         return agencia;
     }
 
-    public String getName() {
+    public String getNome() {
         return this.nome;
     }
 

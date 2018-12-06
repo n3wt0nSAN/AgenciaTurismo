@@ -57,7 +57,7 @@ public class Main {
         try {
             // get agency_id
             Agencia ag = p.getAgencia();
-            int agency_id =  getData.selectAgencyId(ag.getName());
+            int agency_id =  getData.selectAgencyId(ag.getNome());
 
             // get cities_ids
             ArrayList<Cidade> cities = p.getCidades();
@@ -81,10 +81,10 @@ public class Main {
 
             // TODO: Criar função pra salvar objeto
 
-            insertData.insertPackage(p.getName(), p.getDataIni(), p.getDataFim(), p.getPreco(), agency_id);
+            insertData.insertPackage(p.getNome(), p.getDataIni(), p.getDataFim(), p.getPreco(), agency_id);
 
 
-            int package_id = getData.selectPackageId(p.getName());
+            int package_id = getData.selectPackageId(p.getNome());
             // Create insertPackageCity()
             for(int n=0; n < cities_ids.size(); n++){
                 insertData.insertPackageCity(package_id, cities_ids.get(n));

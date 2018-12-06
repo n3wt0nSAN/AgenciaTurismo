@@ -19,7 +19,7 @@ public class Usuario {
         this.pacote.add(p);
     }
 
-    public ArrayList<Pacote> getPacote() {
+    public ArrayList<Pacote> getPacotes() {
         return pacote;
     }
 
